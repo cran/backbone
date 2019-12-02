@@ -9,7 +9,9 @@
 #' @param lower Real or FUN: lower threshold value or function to be applied to the edge weights. Default is NULL.
 #' @param bipartite Boolean: TRUE if bipartite matrix, FALSE if weighted matrix. Default is FALSE.
 #'
-#' @return backbone Matrix: Signed (or positive) adjacency matrix of backbone
+#' @return list(backbone, summary).
+#' backbone: a matrix, Signed (or positive) adjacency matrix of backbone
+#' summary: a data frame summary of the inputted matrix and the model used including: model name, number of rows, skew of row sums, number of columns, skew of column sums, and running time.
 #' @export
 #'
 #' @examples
@@ -24,8 +26,15 @@ universal <- function(M,
   if ((class(upper)!="function") & (class(upper)!="numeric")) {stop("upper must be either function or numeric")}
   if ((class(lower)!="function") & (class(lower)!="numeric") & (class(lower)!="NULL")) {stop("lower must be either function or numeric")}
 
+  #Run Time
+  run.time.start <- Sys.time()
+
   if (bipartite == TRUE){
-    P <- M%*%t(M)
+    if (methods::is(M, "sparseMatrix")) {
+      P <- Matrix::tcrossprod(M)
+    } else {
+      P <- tcrossprod(M)
+    }
   } else {
     P <- M
   }
@@ -53,7 +62,25 @@ universal <- function(M,
   backbone <- backbone + positive
 
   diag(backbone) <- 0
-  return(backbone)
+
+  #Run Time
+  run.time.end <- Sys.time()
+  total.time = (round(difftime(run.time.end, run.time.start), 2))
+
+  #Compile Summary
+  if (methods::is(M, "sparseMatrix")) {
+    r <- Matrix::rowSums(M)
+    c <- Matrix::colSums(M)
+  } else {
+    r <- rowSums(M)
+    c <- colSums(M)
+  }
+  a <- c("Model", "Number of Rows", "Skew of Row Sums", "Number of Columns", "Skew of Column Sums", "Running Time")
+  b <- c("Universal Threshold", dim(M)[1], round((sum((r-mean(r))**3))/((length(r))*((stats::sd(r))**3)), 5), dim(M)[2], round((sum((c-mean(c))**3))/((length(c))*((stats::sd(c))**3)), 5), as.numeric(total.time))
+  model.summary <- data.frame(a,b, row.names = 1)
+  colnames(model.summary)<-"Model Summary"
+
+  return(list(backbone = backbone, summary = model.summary))
 }
 
 

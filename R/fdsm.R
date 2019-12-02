@@ -15,10 +15,11 @@
 #'     If the dyad_parameter is indicated to be used in the parameters, when the B* matrix is projected, the projected value for the corresponding row and column will be saved.
 #'     This allows the user to see the distribution of the edge weights for desired row and column.
 #'
-#' @return list(positive, negative, dyad_values).
+#' @return list(positive, negative, dyad_values, summary).
 #' positive: matrix of proportion of times each entry of the projected matrix B is above the corresponding entry in the generated projection.
 #' negative: matrix of proportion of times each entry of the projected matrix B is below the corresponding entry in the generated projection.
 #' dyad_values: list of edge weight for i,j in each generated projection.
+#' summary: a data frame summary of the inputted matrix and the model used including: model name, number of rows, skew of row sums, number of columns, skew of column sums, and running time.
 #'
 #' @references fixed degree sequence model: \href{https://doi.org/10.1007/s13278-011-0021-0}{Zweig, Katharina Anna, and Michael Kaufmann. 2011. “A Systematic Approach to the One-Mode Projection of Bipartite Graphs.” Social Network Analysis and Mining 1 (3): 187–218. DOI: 10.1007/s13278-011-0021-0.}
 #' @references curveball algorithm: \href{https://www.nature.com/articles/ncomms5114}{Strona, Giovanni, Domenico Nappo, Francesco Boccacci, Simone Fattorini, and Jesus San-Miguel-Ayanz. 2014. “A Fast and Unbiased Procedure to Randomize Ecological Binary Matrices with Fixed Row and Column Totals.” Nature Communications 5 (June). Nature Publishing Group: 4114. DOI:10.1038/ncomms5114.}
@@ -37,14 +38,23 @@ fdsm <- function(B,
   #Argument Checks
   if ((sparse!="TRUE") & (sparse!="FALSE")) {stop("sparse must be either TRUE or FALSE")}
   if ((trials < 1) | (trials%%1!=0)) {stop("trials must be a positive integer")}
-  if (class(B)!="matrix") {stop("input bipartite data must be a matrix")}
+  if (!(methods::is(B, "matrix")) & !(methods::is(B, "sparseMatrix"))) {stop("input bipartite data must be a matrix")}
+
+  #If sparse matrix input, use sparse matrix operations
+  if (methods::is(B, "sparseMatrix")) {sparse <- TRUE}
+
+  #Run Time
+  run.time.start <- Sys.time()
 
   #Project to one-mode data
   if (sparse=="TRUE") {
-    B <- Matrix::Matrix(B,sparse=T)
-    P<-B%*%Matrix::t(B)
+    if (!methods::is(B, "sparseMatrix")) {
+      B <- Matrix::Matrix(B, sparse = T)
     }
-  if (sparse=="FALSE") {P<-B%*%t(B)}
+    P <- Matrix::tcrossprod(B)
+  } else {
+    P <- tcrossprod(B)
+  }
 
   #Create Positive and Negative Matrices to hold backbone
   Positive <- matrix(0, nrow(P), ncol(P))
@@ -93,11 +103,13 @@ fdsm <- function(B,
     for (row in 1:R){rm[row,hp[[row]]]=1}
     Bstar <- rm
 
-    if (sparse=="TRUE") {Bstar <- Matrix::Matrix(Bstar,sparse=T)}
-
     #Construct Pstar from Bstar
-    if (sparse=="TRUE") {Pstar<-Bstar%*%Matrix::t(Bstar)}
-    if (sparse=="FALSE") {Pstar<-Bstar%*%t(Bstar)}
+    if (sparse=="TRUE") {
+      Bstar <- Matrix::Matrix(Bstar,sparse=T)
+      Pstar<-Matrix::tcrossprod(Bstar)
+    } else {
+      Pstar <- tcrossprod(Bstar)
+    }
 
     #Start estimation timer; print message
     if (i == 1) {
@@ -106,8 +118,8 @@ fdsm <- function(B,
     }
 
     #Check whether Pstar edge is larger/smaller than P edge
-    Positive <- Positive + (Pstar > P)+0
-    Negative <- Negative + (Pstar < P)+0
+    Positive <- Positive + (Pstar >= P)+0
+    Negative <- Negative + (Pstar <= P)+0
 
     #Save Dyad of P
     if (length(dyad) > 0){
@@ -135,12 +147,29 @@ fdsm <- function(B,
   rownames(Negative) <- rownames(B)
   colnames(Negative) <- rownames(B)
 
+  #Run Time
+  run.time.end <- Sys.time()
+  total.time = (round(difftime(run.time.end, run.time.start), 2))
+
+  #Compile Summary
+  if (sparse=="TRUE") {
+    r <- Matrix::rowSums(B)
+    c <- Matrix::colSums(B)
+  } else {
+    r <- rowSums(B)
+    c <- colSums(B)
+  }
+  a <- c("Model", "Number of Rows", "Skew of Row Sums", "Number of Columns", "Skew of Column Sums", "Running Time")
+  b <- c("Fixed Degree Sequence Model", dim(B)[1], round((sum((r-mean(r))**3))/((length(r))*((stats::sd(r))**3)), 5), dim(B)[2], round((sum((c-mean(c))**3))/((length(c))*((stats::sd(c))**3)), 5), as.numeric(total.time))
+  model.summary <- data.frame(a,b, row.names = 1)
+  colnames(model.summary)<-"Model Summary"
+
   if (length(dyad) > 0){
-    return(list(positive = Positive, negative = Negative, dyad_values = edge_weights))
+    return(list(positive = Positive, negative = Negative, dyad_values = edge_weights, summary = model.summary))
   }
 
   else {
-    return(list(positive = Positive, negative = Negative))
+    return(list(positive = Positive, negative = Negative, summary = model.summary))
   }
 
 } #end fdsm function

@@ -48,21 +48,29 @@ universal_bb <- universal(davis,
                           bipartite = TRUE)
 
 ## ----hypergeometric model-----------------------------------------------------
-hyperg <- bipartite.null(davis, rows = TRUE, cols = FALSE) # = hyperg(davis)
+hyperg <- fixedrow(davis)
 hyperg_bb <- backbone.extract(hyperg, signed = TRUE) 
 
+## ----poisson binomial model---------------------------------------------------
+pb <- fixedcol(davis)
+pb_bb <- backbone.extract(pb, signed = TRUE) 
+
 ## ----sdsm, echo=T, results='hide'---------------------------------------------
-sdsm <- bipartite.null(davis, rows = TRUE, cols = TRUE) # = sdsm(davis)
+sdsm <- sdsm(davis)
 
 ## ----sdsm backbone------------------------------------------------------------
 sdsm_bb <- backbone.extract(sdsm, signed = FALSE, alpha = 0.1, fwer = "bonferroni") 
 sdsm_bb
 
 ## ----fdsm, echo=T, results='hide'---------------------------------------------
-fdsm <- bipartite.null(davis, rows = TRUE, cols = TRUE, trials = 100, dyad=c(1,5)) # = fdsm(davis, trials = 100, dyad = c(1,5))
+fdsm <- fdsm(davis, trials = 100, dyad = c(1,5))
 
 ## ----fdsm backbone------------------------------------------------------------
 fdsm$dyad_values
 fdsm_bb <- backbone.extract(fdsm, signed = TRUE, alpha = 0.1)
 fdsm_bb
+
+## ----fixed fill model---------------------------------------------------------
+ff <- fixedfill(davis)
+ff_bb <- backbone.extract(ff, signed = TRUE) 
 

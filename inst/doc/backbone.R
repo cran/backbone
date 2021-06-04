@@ -55,13 +55,6 @@ hyperg_bb <- backbone.extract(hyperg, signed = TRUE)
 pb <- fixedcol(davis)
 pb_bb <- backbone.extract(pb, signed = TRUE) 
 
-## ----sdsm, echo=T, results='hide'---------------------------------------------
-sdsm <- sdsm(davis)
-
-## ----sdsm backbone------------------------------------------------------------
-sdsm_bb <- backbone.extract(sdsm, signed = FALSE, alpha = 0.1, fwer = "bonferroni") 
-sdsm_bb
-
 ## ----fdsm, echo=T, results='hide'---------------------------------------------
 fdsm <- fdsm(davis, trials = 100, dyad = c(1,5))
 
@@ -69,6 +62,13 @@ fdsm <- fdsm(davis, trials = 100, dyad = c(1,5))
 fdsm$dyad_values
 fdsm_bb <- backbone.extract(fdsm, signed = TRUE, alpha = 0.1)
 fdsm_bb
+
+## ----sdsm, echo=T, results='hide'---------------------------------------------
+sdsm <- sdsm(davis)
+
+## ----sdsm backbone------------------------------------------------------------
+sdsm_bb <- backbone.extract(sdsm, signed = FALSE, alpha = 0.1, fwer = "bonferroni") 
+sdsm_bb
 
 ## ----fixed fill model---------------------------------------------------------
 ff <- fixedfill(davis)

@@ -1,7 +1,7 @@
 Package: backbone
 Type: Package
 Title: Extracts the Backbone from Weighted Graphs
-Version: 1.5.0
+Version: 1.5.1
 Authors@R: c(
     person("Zachary", "Neal", email = "zpneal@msu.edu", role = c("aut", "cre")),
     person("Rachel", "Domagalski", email = "domagal9@msu.edu", role = "aut"), 
@@ -29,10 +29,10 @@ URL: https://www.zacharyneal.com/backbone,
         https://github.com/domagal9/backbone
 BugReports: https://github.com/domagal9/backbone/issues
 NeedsCompilation: no
-Packaged: 2021-06-03 17:26:45 UTC; zacharyneal
+Packaged: 2021-09-15 13:04:02 UTC; zacharyneal
 Author: Zachary Neal [aut, cre],
   Rachel Domagalski [aut],
   Bruce Sagan [aut]
 Maintainer: Zachary Neal <zpneal@msu.edu>
 Repository: CRAN
-Date/Publication: 2021-06-04 08:00:15 UTC
+Date/Publication: 2021-09-17 15:30:09 UTC

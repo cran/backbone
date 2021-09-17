@@ -1,6 +1,6 @@
-da96f0c46535ac4a88291d2124de02a4 *DESCRIPTION
+651c48075a29fe5379df33ddcf8031a5 *DESCRIPTION
 96e1de9e2a32c5e46576f16b369327fd *NAMESPACE
-322550dae113f93de804f6d60d6d525d *NEWS.md
+32589f72757da32afd7c4812fd8bdb2f *NEWS.md
 3c9670cc21a055bc9de6a9cdce3fcc65 *R/backbone.R
 e2cc4a82c47a50fda70b504d39ec94bf *R/backbone.extract.R
 e52742d2b27dc6052dcf448240cabac7 *R/bicm.R
@@ -17,14 +17,14 @@ dc195135dbbc25504ff880febbaebadf *R/fixedrow.R
 214d800033b810a3841b8fb7c5b50dc3 *R/sdsm.R
 d6705a7fe7e9202acc3005802ef165f2 *R/universal.R
 d5297e6fdcb44b8af843da0ae65690b1 *R/zzz.R
-c31f8c1c0258d58ff6a550d541ba5efe *README.md
-789c400d4edd129944c0b4499cdc5cc7 *build/partial.rdb
+ae2147bff245ad7448e211801d52ebae *README.md
+5cab8c9c3059bdb78fc32ceb863b9ddf *build/partial.rdb
 6f09fd9871a118dcdeb396f1ab6c2c6b *build/vignette.rds
 d1ca3467ce6755ababc181a60f2f19c8 *data/davis.rda
 011404313ef15f7281a394e58a34dc3a *inst/CITATION
 b586331c8a29bc90b9baa9a7cfc1af6e *inst/doc/backbone.R
 fc7d2b60c605c9ceebcb64f404fc795b *inst/doc/backbone.Rmd
-61d7cfb87a3f4160105b5dedbcb9f991 *inst/doc/backbone.html
+ef4dcb298af7989a82436e43bfaa3908 *inst/doc/backbone.html
 86142e2318f8dd1484be68c3dd713f41 *man/backbone.Rd
 330123c2cfcbe852b0f0b15c4e4955f1 *man/backbone.extract.Rd
 27249f3bb02c653c59c847ed843d5d55 *man/bicm.Rd
@@ -47,9 +47,5 @@ a4c67c7266f47c70fa6ef6771b8ab0a9 *man/loglikelihood_prime_bicm.Rd
 14fdde6222d94c85554f72b6006856fe *man/sdsm.Rd
 13054afc2027f87db722e4fd937f513f *man/tomatrix.Rd
 427c0dc2d23ef13bd6a58b6da339cef5 *man/universal.Rd
-3afda3edfa44a83dc4970cde502372c3 *tests/testthat.R
-876cb59b289513495f2df9cf8ca85a20 *tests/testthat/test-backbone.extract.R
-9f8b4d732cb25d0a8d363a55f31bf5a2 *tests/testthat/test-frommatrix.R
-903d60f303856829815da1b29510f559 *tests/testthat/test-tomatrix.R
 fc7d2b60c605c9ceebcb64f404fc795b *vignettes/backbone.Rmd
 7badab8c65268ea3aecd0e58fb1474a4 *vignettes/backbone_bib.bib

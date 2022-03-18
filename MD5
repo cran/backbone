@@ -1,6 +1,6 @@
-9dec5bbc48ceca8060668db62de26161 *DESCRIPTION
+928516dd2ceb7c88852ad2d2cdd38c94 *DESCRIPTION
 4dcb5da23351d1942b2cad96afe72904 *NAMESPACE
-5e7ffe07bc49c6c91c2193ca8efecfd0 *NEWS.md
+5cfc083f3d595f98dd74b1e54469a6c8 *NEWS.md
 9472191c707d7415cd3546462858199b *R/RcppExports.R
 3fe60d7e9286c7a6aa1ae457bd1e900c *R/backbone.R
 83563baa94fbe37142d6fd71dab2045e *R/backbone.suggest.R
@@ -10,7 +10,7 @@ bf9ef6e9f2fd07db6a02c267e62c2fec *R/bipartite.from.distribution.R
 ea2f4ad30171f3eee6356a60d7b3eb95 *R/bipartite.from.probability.R
 ce1c90e1c7140208ff216b89c521b741 *R/bipartite.from.sequence.R
 cd74500cfc1264017faf5b6be5b7e010 *R/disparity.R
-2f518b70f1234439e69dac7cff831fc7 *R/fdsm.R
+4c984c50df5af0a3d83363c178f689ea *R/fdsm.R
 ac9cb4e10108bd48db76edc1141eb8fb *R/fixedcol.R
 a44be7c9803478f08aa604f311d58ec7 *R/fixedfill.R
 6a886215e4474d029e9ab9bf9da38fdc *R/fixedrow.R
@@ -18,15 +18,15 @@ e4546162a40dae1d73087bdab49a2a19 *R/global.R
 73132aaf0a1748460312c02cd0af2b1c *R/osdsm.R
 8d2a0625a7000fc305ab0602e3d793bd *R/sdsm.R
 ad664fed63f65b3583048909677cab7c *R/sparsify.R
-a0d7a54ffa6cb7c54b4b31caa874fafc *R/utils.R
+f2573946905b8ddc62f49666e4441aea *R/utils.R
 7ef0e95ea31602a873705b6ecae17a20 *R/write.narrative.R
 684b3aa669cac4b80e2da10da50a325d *README.md
-93a32b14accce6651a2459a9a35da5bd *build/partial.rdb
+ce19c4da3f890690472b67fa0f719562 *build/partial.rdb
 47c09aec42944cf391ccdcbe11c53f34 *build/vignette.rds
 9637b679694511ee9877e3c938ebe508 *inst/CITATION
 d1723b103db29bd4b033967d24f8a55c *inst/doc/backbone.R
 b283575a74a1de9d22a93784c1f18414 *inst/doc/backbone.Rmd
-3c715f4f67e6f7a3c1bfb0174f9c09fa *inst/doc/backbone.html
+00b20565970936f10d66cb0cad88206d *inst/doc/backbone.html
 5bca66d2530032c71f72f932e30acc5a *man/backbone.Rd
 1413aad0848cc3294fc721fc2fd44aa2 *man/backbone.extract.Rd
 6df1f950756c346cc9590476e05e43a9 *man/backbone.suggest.Rd

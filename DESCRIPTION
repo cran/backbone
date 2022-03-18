@@ -1,7 +1,7 @@
 Package: backbone
 Type: Package
 Title: Extracts the Backbone from Graphs
-Version: 2.0.1
+Version: 2.0.2
 Authors@R: c(
     person("Zachary", "Neal", email = "zpneal@msu.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-3076-4995")),
     person("Rachel", "Domagalski", email = "domagal9@msu.edu", role = "aut"), 
@@ -29,11 +29,11 @@ URL: https://www.zacharyneal.com/backbone,
 BugReports: https://github.com/zpneal/backbone/issues
 Config/testthat/edition: 3
 NeedsCompilation: yes
-Packaged: 2022-03-15 15:09:24 UTC; zacharyneal
+Packaged: 2022-03-18 15:02:24 UTC; zacharyneal
 Author: Zachary Neal [aut, cre] (<https://orcid.org/0000-0003-3076-4995>),
   Rachel Domagalski [aut],
   Bruce Sagan [aut],
   Karl Godard [ctb]
 Maintainer: Zachary Neal <zpneal@msu.edu>
 Repository: CRAN
-Date/Publication: 2022-03-16 07:50:29 UTC
+Date/Publication: 2022-03-18 16:10:02 UTC

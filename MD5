@@ -1,6 +1,6 @@
-928516dd2ceb7c88852ad2d2cdd38c94 *DESCRIPTION
+5fd46c6281442e14bf461d921c2d1aeb *DESCRIPTION
 4dcb5da23351d1942b2cad96afe72904 *NAMESPACE
-5cfc083f3d595f98dd74b1e54469a6c8 *NEWS.md
+a6a2987f2a240978b65086b819848eff *NEWS.md
 9472191c707d7415cd3546462858199b *R/RcppExports.R
 3fe60d7e9286c7a6aa1ae457bd1e900c *R/backbone.R
 83563baa94fbe37142d6fd71dab2045e *R/backbone.suggest.R
@@ -21,12 +21,12 @@ ad664fed63f65b3583048909677cab7c *R/sparsify.R
 f2573946905b8ddc62f49666e4441aea *R/utils.R
 7ef0e95ea31602a873705b6ecae17a20 *R/write.narrative.R
 684b3aa669cac4b80e2da10da50a325d *README.md
-ce19c4da3f890690472b67fa0f719562 *build/partial.rdb
-47c09aec42944cf391ccdcbe11c53f34 *build/vignette.rds
+da61ce7a1bd3705b299de6985b85b5fd *build/partial.rdb
+dcc06a8f0fb2f97c2d5f36bb9bf1704e *build/vignette.rds
 9637b679694511ee9877e3c938ebe508 *inst/CITATION
 d1723b103db29bd4b033967d24f8a55c *inst/doc/backbone.R
-b283575a74a1de9d22a93784c1f18414 *inst/doc/backbone.Rmd
-00b20565970936f10d66cb0cad88206d *inst/doc/backbone.html
+8db0549c05b0ea9dad4422ef16564a1f *inst/doc/backbone.Rmd
+a51b0012a344b884ff0fa5c754b0999d *inst/doc/backbone.html
 5bca66d2530032c71f72f932e30acc5a *man/backbone.Rd
 1413aad0848cc3294fc721fc2fd44aa2 *man/backbone.extract.Rd
 6df1f950756c346cc9590476e05e43a9 *man/backbone.suggest.Rd
@@ -68,6 +68,6 @@ aa7f2e76359b32f9f2273054a3535200 *man/universal.Rd
 637e01ecfa26eb2b02ce5e0585bb94b8 *src/RcppExports.cpp
 2d125ec7c70cda5d027059fada252cc0 *src/fastball.cpp
 3afda3edfa44a83dc4970cde502372c3 *tests/testthat.R
-9bc283912572737369be8689ec72915b *tests/testthat/test-backbone.R
-b283575a74a1de9d22a93784c1f18414 *vignettes/backbone.Rmd
+4bce88b9d147ccf899d25ecd927bb980 *tests/testthat/test-backbone.R
+8db0549c05b0ea9dad4422ef16564a1f *vignettes/backbone.Rmd
 f13ea6278da2d778241230fdf0540d0f *vignettes/backbone_bib.bib

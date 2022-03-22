@@ -1,6 +1,6 @@
 ---
-title: "backbone"
-author: "Zachary Neal, Rachel Domagalski, Bruce Sagan"
+title: "Introduction to Backbone"
+author: "Zachary Neal"
 output: 
   rmarkdown::html_vignette:
   toc: true
@@ -8,7 +8,7 @@ output:
 bibliography: backbone_bib.bib
 link-citations: yes
 vignette: >
-  %\VignetteIndexEntry{backbone}
+  %\VignetteIndexEntry{Introduction to Backbone}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

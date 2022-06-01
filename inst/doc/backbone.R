@@ -88,7 +88,7 @@ plot(U.with.hubs, vertex.size = igraph::degree(bb), vertex.label = NA) #A hairba
 bb <- sparsify.with.localdegree(U.with.hubs, s = 0.3, narrative = TRUE)
 plot(bb, vertex.size = igraph::degree(bb), vertex.label = NA)
 
-## -----------------------------------------------------------------------------
+## ---- echo = TRUE, results = 'hide', warning = FALSE--------------------------
 B <- rbind(cbind(matrix(rbinom(250,1,.8),10),
                  matrix(rbinom(250,1,.2),10),
                  matrix(rbinom(250,1,.2),10)),
@@ -102,11 +102,11 @@ bb.object <- fdsm(B, alpha = NULL, trials = 1000)  #Backbone object containing e
 
 ## -----------------------------------------------------------------------------
 bb1 <- backbone.extract(bb.object, alpha = 0.5, class = "igraph")  #Backbone extracted at alpha = 0.5
-plot(bb1)
+plot(bb1, vertex.label = NA)
 
 ## -----------------------------------------------------------------------------
 bb2 <- backbone.extract(bb.object, alpha = 0.05, class = "igraph")  #Backbone extracted at alpha = 0.05
-plot(bb2)
+plot(bb2, vertex.label = NA)
 
 ## -----------------------------------------------------------------------------
 mat <- rbind(c(1,0,0), c(0,0,1), c(0,1,1))

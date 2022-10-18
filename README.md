@@ -5,6 +5,8 @@
 [![](https://www.r-pkg.org/badges/version/backbone?color=orange)](https://cran.r-project.org/package=backbone)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/backbone?color=blue)](https://cran.r-project.org/package=backbone)
 [![](http://cranlogs.r-pkg.org/badges/last-month/backbone?color=green)](https://cran.r-project.org/package=backbone)
+[![status](https://tinyverse.netlify.com/badge/backbone)](https://CRAN.R-project.org/package=backbone)
+[![DOI:10.1371/journal.pone.0269137](http://img.shields.io/badge/DOI-10.1371/journal.pone.0269137-B31B1B.svg)](https://doi.org/10.1371/journal.pone.0269137)
 <!-- badges: end -->
 
 ## Welcome
@@ -16,14 +18,13 @@ The backbone package implements methods to extract the *backbone* of a network, 
 
 In addition, the package implements some other utility functions to:
 
-* Generate random bipartite networks
 * Randomize matrices while preserving the row and column sums
 * Estimate the Bipartite Configuration Model (BiCM)
 
 For more details on these functions and methods, please see:
 
-* Domagalski R., Neal, Z.P., and Sagan, B. (2021). Backbone: an R package for extracting the backbone of bipartite projections. *PLoS ONE, 16*, e0244363. <https://doi.org/10.1371/journal.pone.0244363>
-* Neal, Z.P., Domagalski, R., and Sagan, B. (2021). Comparing Alternatives to the Fixed Degree Sequence Model for Extracting the Backbone of Bipartite Projections. *Scientific Reports*. <https://arxiv.org/abs/2105.13396>
+* Neal, Z.P. (2022). backbone: An R package to extract network backbones. *PLoS ONE, 17*, e0269137. <https://doi.org/10.1371/journal.pone.0269137>
+* Neal, Z.P., Domagalski, R., and Sagan, B. (2021). Comparing Alternatives to the Fixed Degree Sequence Model for Extracting the Backbone of Bipartite Projections. *Scientific Reports, 11*, 23929. <https://doi.org/10.1038/s41598-021-03238-3>
 * [www.rbackbone.net](https://www.zacharyneal.com/backbone)
 
 ## Installation
@@ -37,3 +38,6 @@ The /devel branch contains the working beta version of the next release of the b
 library(devtools)
 install_github("zpneal/backbone", ref = "devel", build_vignettes = TRUE)
 ```
+
+## Dependencies
+The `backbone` package adopts the [tinyverse](https://www.tinyverse.org/) philosophy, and therefore aims to keep dependencies at a minimum.

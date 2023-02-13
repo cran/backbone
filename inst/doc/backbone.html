@@ -10,7 +10,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta name="author" content="Zachary Neal" />
+<meta name="author" content="Zachary Neal, Michigan State University, zpneal@msu.edu" />
 
 
 <title>Introduction to Backbone</title>
@@ -30,22 +30,22 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
@@ -63,55 +63,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -138,25 +137,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <style type="text/css">
-/* for pandoc --citeproc since 2.11 */
+
 div.csl-bib-body { }
 div.csl-entry {
-  clear: both;
+clear: both;
 }
 .hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+margin-left:2em;
+text-indent:-2em;
 }
 div.csl-left-margin {
-  min-width:2em;
-  float:left;
+min-width:2em;
+float:left;
 }
 div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
+margin-left:2em;
+padding-left:1em;
 }
 div.csl-indent {
-  margin-left: 2em;
+margin-left: 2em;
 }
 </style>
 
@@ -353,7 +352,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">Introduction to Backbone</h1>
-<h4 class="author">Zachary Neal</h4>
+<h4 class="author">Zachary Neal, Michigan State University, <a href="mailto:zpneal@msu.edu" class="email">zpneal@msu.edu</a></h4>
 
 
 
@@ -411,14 +410,14 @@ Backbones. <em>PLOS ONE, 17</em>. <a href="https://doi.org/10.1371/journal.pone.
 <p>If you have questions about the backbone package or would like a
 backbone hex sticker, please contact the maintainer Zachary Neal by
 email (<a href="mailto:zpneal@msu.edu">zpneal@msu.edu</a>) or via
-Twitter (<a href="https://twitter.com/zpneal">@zpneal</a>). Please
-report bugs in the backbone package at <a href="https://github.com/zpneal/backbone/issues">https://github.com/zpneal/backbone/issues</a>.</p>
+Mastodon (<a href="https://mastodon.social/@zpneal">@zpneal@mastodon.social</a>).
+Please report bugs in the backbone package at <a href="https://github.com/zpneal/backbone/issues">https://github.com/zpneal/backbone/issues</a>.</p>
 </div>
 <div id="loading" class="section level2">
 <h2>Loading the package</h2>
 <p>The backbone package can be loaded in the usual way:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(backbone)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ____   backbone v2.1.1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ____   backbone v2.1.2</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; |  _ \  Cite: Neal, Z. P., (2022). Backbone: An R package to extract network backbones.</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; |#|_) |       PLOS ONE, 17, e0269137. https://doi.org/10.1371/journal.pone.0269137</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; |# _ &lt;</span></span>
@@ -465,7 +464,7 @@ sparser backbones. For example:</p>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Extracting backbone using: disparity(G, alpha = 0.05, signed = FALSE, mtc = &quot;none&quot;, class = &quot;original&quot;, narrative = TRUE)</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; === Suggested manuscript text and citations ===</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.1; Neal, 2022) to extract the unweighted backbone of a weighted and directed unipartite network containing 10 nodes. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.05) using the disparity filter (Serrano et al., 2009). This reduced the number of edges by 100%, and reduced the number of connected nodes by 100%.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.2; Neal, 2022) to extract the unweighted backbone of a weighted and directed unipartite network containing 10 nodes. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.05) using the disparity filter (Serrano et al., 2009). This reduced the number of edges by 100%, and reduced the number of connected nodes by 100%.</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Neal, Z. P. 2022. backbone: An R Package to Extract Network Backbones. PLOS ONE, 17, e0269137. https://doi.org/10.1371/journal.pone.0269137</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -593,7 +592,7 @@ transportation system:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bb <span class="ot">&lt;-</span> <span class="fu">disparity</span>(W, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">narrative =</span> <span class="cn">TRUE</span>, <span class="at">class =</span> <span class="st">&quot;igraph&quot;</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; === Suggested manuscript text and citations ===</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.1; Neal, 2022) to extract the unweighted backbone of a weighted and undirected unipartite network containing 10 nodes. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.05) using the disparity filter (Serrano et al., 2009). This reduced the number of edges by 43.8%, and reduced the number of connected nodes by 0%.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.2; Neal, 2022) to extract the unweighted backbone of a weighted and undirected unipartite network containing 10 nodes. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.05) using the disparity filter (Serrano et al., 2009). This reduced the number of edges by 43.8%, and reduced the number of connected nodes by 0%.</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Neal, Z. P. 2022. backbone: An R Package to Extract Network Backbones. PLOS ONE, 17, e0269137. https://doi.org/10.1371/journal.pone.0269137</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -723,7 +722,7 @@ of the papers have approximately the same number of authors as in
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bb <span class="ot">&lt;-</span> <span class="fu">sdsm</span>(B, <span class="at">alpha =</span> <span class="fl">0.075</span>, <span class="at">narrative =</span> <span class="cn">TRUE</span>, <span class="at">class =</span> <span class="st">&quot;igraph&quot;</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; === Suggested manuscript text and citations ===</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.1; Neal, 2022) to extract the unweighted backbone of the weighted projection of an unweighted bipartite network containing 30 agents and 75 artifacts. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.075) using the stochastic degree sequence model (SDSM; Neal, 2014). This reduced the number of edges by 83.2%, and reduced the number of connected nodes by 3.3%.</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.2; Neal, 2022) to extract the unweighted backbone of the weighted projection of an unweighted bipartite network containing 30 agents and 75 artifacts. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.075) using the stochastic degree sequence model (SDSM; Neal, 2014). This reduced the number of edges by 83.2%, and reduced the number of connected nodes by 3.3%.</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Neal, Z. P. 2022. backbone: An R Package to Extract Network Backbones. PLOS ONE, 17, e0269137. https://doi.org/10.1371/journal.pone.0269137</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -816,7 +815,7 @@ structure:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>bb <span class="ot">&lt;-</span> <span class="fu">sparsify.with.lspar</span>(U.with.communities, <span class="at">s =</span> <span class="fl">0.6</span>, <span class="at">narrative =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; === Suggested manuscript text and citations ===</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.1; Neal, 2022) to extract the unweighted backbone of an unweighted and undirected unipartite network containing 60 nodes. Specifically, we used Satuluri et al.&#39;s (2011) L-Spar model with a sparsification threshold of 0.6. This reduced the number of edges by 61.8%, and reduced the number of connected nodes by 0%.</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.2; Neal, 2022) to extract the unweighted backbone of an unweighted and undirected unipartite network containing 60 nodes. Specifically, we used Satuluri et al.&#39;s (2011) L-Spar model with a sparsification threshold of 0.6. This reduced the number of edges by 61.8%, and reduced the number of connected nodes by 0%.</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Neal, Z. P. 2022. backbone: An R Package to Extract Network Backbones. PLOS ONE, 17, e0269137. https://doi.org/10.1371/journal.pone.0269137</span></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -837,7 +836,7 @@ the network:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bb <span class="ot">&lt;-</span> <span class="fu">sparsify.with.localdegree</span>(U.with.hubs, <span class="at">s =</span> <span class="fl">0.3</span>, <span class="at">narrative =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; === Suggested manuscript text and citations ===</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.1; Neal, 2022) to extract the unweighted backbone of an unweighted and undirected unipartite network containing 60 nodes. Specifically, we used Hamann et al.&#39;s (2016) local degree model with a sparsification threshold of 0.3. This reduced the number of edges by 64.4%, and reduced the number of connected nodes by 0%.</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; We used the backbone package for R (v2.1.2; Neal, 2022) to extract the unweighted backbone of an unweighted and undirected unipartite network containing 60 nodes. Specifically, we used Hamann et al.&#39;s (2016) local degree model with a sparsification threshold of 0.3. This reduced the number of edges by 64.4%, and reduced the number of connected nodes by 0%.</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Neal, Z. P. 2022. backbone: An R Package to Extract Network Backbones. PLOS ONE, 17, e0269137. https://doi.org/10.1371/journal.pone.0269137</span></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -894,7 +893,7 @@ object without needing to recompute the p-values:</p>
 <p>Extracting a backbone from a bipartite projection using the fixed
 degree sequence model and <code>fdsm()</code> function requires randomly
 sampling matrices from the space of all binary matrices with given row
-and column sums, which is performed using the ‘fastball’ algorithm <span class="citation">(<a href="#ref-godard2021fastball" role="doc-biblioref">Godard and Neal 2021</a>)</span>. Given a matrix,
+and column sums, which is performed using the ‘fastball’ algorithm <span class="citation">(<a href="#ref-godard2021fastball" role="doc-biblioref">Godard and Neal 2022</a>)</span>. Given a matrix,
 <code>fastball()</code> returns a new matrix randomly sampled from the
 space of all binary matrices with the same row and column sums:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
@@ -956,9 +955,9 @@ column sums, <code>bicm()</code> estimates these probabilities:</p>
 <h1 class="unnumbered">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-godard2021fastball" class="csl-entry">
-Godard, Karl, and Zachary P Neal. 2021. <span>“<span class="nocase">f</span>astball: <span>A</span> Fast Algorithm to Sample
-Bipartite Graphs with Fixed Degree Sequences.”</span> <em>arXiv Preprint
-arXIV:2112.04017</em>. <a href="https://doi.org/10.48550/arXiv.2112.04017">https://doi.org/10.48550/arXiv.2112.04017</a>.
+Godard, Karl, and Zachary P Neal. 2022. <span>“<span class="nocase">f</span>astball: <span>A</span> Fast Algorithm to Sample
+Bipartite Graphs with Fixed Degree Sequences.”</span> <em>Journal of
+Complex Networks</em> 10 (6): cnas049. <a href="https://doi.org/10.1093/comnet/cnac049">https://doi.org/10.1093/comnet/cnac049</a>.
 </div>
 <div id="ref-hamann2016structure" class="csl-entry">
 Hamann, Michael, Gerd Lindner, Henning Meyerhenke, Christian L Staudt,

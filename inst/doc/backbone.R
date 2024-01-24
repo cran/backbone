@@ -1,8 +1,8 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 knitr::opts_knit$set(global.par = TRUE)
 
-## ---- echo = FALSE------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 set.seed(5)
 oldmar <- par()$mar
 par(mar = c(0, 0, 0, 0) + 0.1)
@@ -89,7 +89,7 @@ plot(U.with.hubs, vertex.size = igraph::degree(bb), vertex.label = NA) #A hairba
 bb <- sparsify.with.localdegree(U.with.hubs, s = 0.3, narrative = TRUE)
 plot(bb, vertex.size = igraph::degree(bb), vertex.label = NA)
 
-## ---- echo = TRUE, results = 'hide', warning = FALSE--------------------------
+## ----echo = TRUE, results = 'hide', warning = FALSE---------------------------
 B <- rbind(cbind(matrix(rbinom(250,1,.8),10),
                  matrix(rbinom(250,1,.2),10),
                  matrix(rbinom(250,1,.2),10)),
@@ -118,6 +118,6 @@ fastball(mat)
 mat <- rbind(c(1,0,0), c(0,0,1), c(0,1,1))
 bicm(mat)
 
-## ---- echo = FALSE------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 par(mar = oldmar)
 

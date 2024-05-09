@@ -52,7 +52,7 @@
 #' net <- igraph::graph_from_adjacency_matrix(net, mode = "undirected", weighted = TRUE)
 #' plot(net, edge.width = sqrt(igraph::E(net)$weight)) #A stronger clique & a weaker clique
 #'
-#' strong <- igraph::delete.edges(net, which(igraph::E(net)$weight < mean(igraph::E(net)$weight)))
+#' strong <- igraph::delete_edges(net, which(igraph::E(net)$weight < mean(igraph::E(net)$weight)))
 #' plot(strong) #A backbone of stronger-than-average edges ignores the weaker clique
 #'
 #' bb <- mlf(net, alpha = 0.05, narrative = TRUE) #An MLF backbone...
@@ -83,8 +83,8 @@ mlf <- function(W, alpha = 0.05, missing.as.zero = FALSE, signed = FALSE, mtc = 
 
   #### Compute p-values ####
   if (symmetric) {
-    Pupper <- matrix(NA, nrow(G), ncol(G))
-    if (signed) {Plower <- matrix(NA, nrow(G), ncol(G))}
+    Pupper <- matrix(NA, nrow(G), ncol(G), dimnames = list(rownames(G),colnames(G)))
+    if (signed) {Plower <- matrix(NA, nrow(G), ncol(G), dimnames = list(rownames(G),colnames(G)))}
     T <- sum(rowSums(G))/2
     p <- (rowSums(G) %*% t(rowSums(G))) / (2 * (T^2))
     for (col in 1:ncol(G)) {  #Loop over lower triangle
@@ -107,8 +107,8 @@ mlf <- function(W, alpha = 0.05, missing.as.zero = FALSE, signed = FALSE, mtc = 
   }
 
   if (!symmetric) {
-    Pupper <- matrix(NA, nrow(G), ncol(G))
-    if (signed) {Plower <- matrix(NA, nrow(G), ncol(G))}
+    Pupper <- matrix(NA, nrow(G), ncol(G), dimnames = list(rownames(G),colnames(G)))
+    if (signed) {Plower <- matrix(NA, nrow(G), ncol(G), dimnames = list(rownames(G),colnames(G)))}
     T <- sum(rowSums(G))
     p <- (rowSums(G) %*% t(colSums(G))) / (T^2)
     for (col in 1:ncol(G)) {  #Loop over full matrix

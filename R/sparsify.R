@@ -55,7 +55,7 @@
 #' @references {Neal, Z. P. (2022). backbone: An R Package to Extract Network Backbones. *PLOS ONE, 17*, e0269137. \doi{10.1371/journal.pone.0269137}}
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify(U, s = 0.6, escore = "jaccard", normalize = "rank",
 #' filter = "degree", narrative = TRUE)
@@ -116,7 +116,7 @@ sparsify <- function(U, s, escore, normalize, filter, symmetrize = TRUE, umst = 
     D <- nrow(G) - tcrossprod((!G)*1)  #Intersection of neighborhoods
     D <- D - 2  #Exclude focal nodes from denominator
     G <- N/D  #Jaccard coefficient
-    G[is.nan(G)] <- 0  #Fix any divide-by-zero
+    G[G==Inf | is.nan(G)] <- 0  #Fix any divide-by-zero
     G <- G * original  #Keep coefficient only for present edges
   }
 
@@ -128,7 +128,7 @@ sparsify <- function(U, s, escore, normalize, filter, symmetrize = TRUE, umst = 
     D[upper.tri(D)] <- t(D)[upper.tri(D)]
     D <- D - 2  #Exclude focal nodes from denominator
     G <- (2*N)/D  #Dice coefficient
-    G[is.nan(G)] <- 0  #Fix any divide-by-zero
+    G[G==Inf | is.nan(G)] <- 0  #Fix any divide-by-zero
     G <- G * original  #Keep coefficient only for present edges
   }
 
@@ -148,7 +148,7 @@ sparsify <- function(U, s, escore, normalize, filter, symmetrize = TRUE, umst = 
   if (escore == "quadrilateral embeddedness") {  #G already contains the number of quadrangles per edge
     denominator <- sqrt(rowSums(G)%*%t(colSums(G)))
     G <- (G / denominator) * original
-    G[is.nan(G)] <- 0  #Fix any divide-by-zero
+    G[G==Inf | is.nan(G)] <- 0  #Fix any divide-by-zero
   }
 
   #Degree of alter, from Hamann et al. (2016)
@@ -170,7 +170,7 @@ sparsify <- function(U, s, escore, normalize, filter, symmetrize = TRUE, umst = 
     N <- tcrossprod(G)^2  #Shared neighbors, squared
     D <- rowSums(G)%*%t(rowSums(G))
     G <- N/D  #Geometric score
-    G[is.nan(G)] <- 0  #Fix any divide-by-zero
+    G[G==Inf | is.nan(G)] <- 0  #Fix any divide-by-zero
     G <- G * original
   }
 
@@ -314,7 +314,7 @@ sparsify.with.skeleton <- function(U, s, class = "original", narrative = FALSE) 
 #' @export
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify.with.gspar(U, s = 0.4, narrative = TRUE)
 #' plot(sparse) #Clearly visible communities
@@ -340,7 +340,7 @@ sparsify.with.gspar <- function(U, s, class = "original", narrative = FALSE) {
 #' @export
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify.with.lspar(U, s = 0.6, narrative = TRUE)
 #' plot(sparse) #Clearly visible communities
@@ -366,7 +366,7 @@ sparsify.with.lspar <- function(U, s, class = "original", narrative = FALSE) {
 #' @export
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify.with.simmelian(U, s = 0.5, narrative = TRUE)
 #' plot(sparse) #Clearly visible communities
@@ -392,7 +392,7 @@ sparsify.with.simmelian <- function(U, s, class = "original", narrative = FALSE)
 #' @export
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify.with.jaccard(U, s = 0.3, narrative = TRUE)
 #' plot(sparse) #Clearly visible communities
@@ -418,7 +418,7 @@ sparsify.with.jaccard <- function(U, s, class = "original", narrative = FALSE) {
 #' @export
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify.with.meetmin(U, s = 0.5, narrative = TRUE)
 #' plot(sparse) #Clearly visible communities
@@ -444,7 +444,7 @@ sparsify.with.meetmin <- function(U, s, class = "original", narrative = FALSE) {
 #' @export
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify.with.geometric(U, s = 0.25, narrative = TRUE)
 #' plot(sparse) #Clearly visible communities
@@ -470,7 +470,7 @@ sparsify.with.geometric <- function(U, s, class = "original", narrative = FALSE)
 #' @export
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify.with.hypergeometric(U, s = 0.3, narrative = TRUE)
 #' plot(sparse) #Clearly visible communities
@@ -522,7 +522,7 @@ sparsify.with.localdegree <- function(U, s, class = "original", narrative = FALS
 #' @export
 #'
 #' @examples
-#' U <- igraph::sbm.game(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
+#' U <- igraph::sample_sbm(60, matrix(c(.75,.25,.25,.25,.75,.25,.25,.25,.75),3,3), c(20,20,20))
 #' plot(U) #A hairball
 #' sparse <- sparsify.with.quadrilateral(U, s = 0.5, narrative = TRUE)
 #' plot(sparse) #Clearly visible communities in a connected graph

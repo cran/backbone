@@ -14,6 +14,12 @@ library(backbone)
 library(igraph)
 
 ## -----------------------------------------------------------------------------
+my_network <- sample_gnp(100, .5)  #A random network
+my_network
+backbone <- backbone(my_network)  #Extract the backbone
+backbone
+
+## -----------------------------------------------------------------------------
 W <- matrix(c(0,10,10,10,10,75,0,0,0,0,  #Adjacency matrix of example network
               10,0,1,1,1,0,0,0,0,0,
               10,1,0,1,1,0,0,0,0,0,
@@ -79,14 +85,9 @@ bb <- backbone_from_unweighted(U, model = "degree", parameter = 0.25)
 plot(bb, vertex.size = degree(bb), vertex.label.family = "sans", vertex.label.font = 2, main = "Local Degree Backbone")
 
 ## -----------------------------------------------------------------------------
-B <- matrix(sample(c(0,1), 18, replace = TRUE), 3, 6)  #A simple incidence matrix
-bb <- backbone_from_projection(B, model = "sdsm", alpha = 0.05, return = "everything")  #Extract backbone, return everything
-bb$bipartite  #The original bipartite network
-bb$projection  #The weighted projection
-bb$pvalues  #The edgewise p-values
-bb$backbone  #The backbone (as a matrix)
-bb$narrative  #Narrative description
-bb$call  #Function call
+B <- matrix(sample(c(0,1), 48, replace = TRUE), 6, 8)  #A simple incidence matrix
+bb <- backbone(B, backbone_only = FALSE)  #Extract backbone, return backbone object
+bb
 
 ## ----fig.width=8, out.width="75%"---------------------------------------------
 par(mfrow = c(1, 2), mar = c(0,0,2,0))  #Display plots side-by-side

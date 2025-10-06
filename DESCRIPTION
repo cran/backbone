@@ -1,7 +1,7 @@
 Package: backbone
 Type: Package
 Title: Extracts the Backbone from Networks
-Version: 3.0.1
+Version: 3.0.2
 Authors@R: c(
     person("Zachary", "Neal", email = "zpneal@msu.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-3076-4995")),
     person("Rachel", "Domagalski", role = "ctb"), 
@@ -24,7 +24,7 @@ URL: https://www.zacharyneal.com/backbone,
 BugReports: https://github.com/zpneal/backbone/issues
 LazyData: true
 NeedsCompilation: yes
-Packaged: 2025-09-30 14:20:56 UTC; zacharyneal
+Packaged: 2025-10-02 12:57:47 UTC; zacharyneal
 Author: Zachary Neal [aut, cre] (ORCID:
     <https://orcid.org/0000-0003-3076-4995>),
   Rachel Domagalski [ctb],
@@ -32,4 +32,4 @@ Author: Zachary Neal [aut, cre] (ORCID:
   Karl Godard [ctb]
 Maintainer: Zachary Neal <zpneal@msu.edu>
 Repository: CRAN
-Date/Publication: 2025-09-30 15:20:02 UTC
+Date/Publication: 2025-10-06 18:40:13 UTC

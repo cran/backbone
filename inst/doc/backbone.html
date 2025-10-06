@@ -435,7 +435,7 @@ report bugs in the backbone package at <a href="https://github.com/zpneal/backbo
 <code>install.packages(&quot;backbone&quot;)</code>, it can be loaded in the usual
 way:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(backbone)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt;  ____   backbone v3.0.1</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt;  ____   backbone v3.0.2</span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; |  _ \  Cite: Neal, Z. P., (2025). backbone: An R package to extract network</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; |#|_) |       backbones. CRAN. https://doi.org/10.32614/CRAN.package.backbone</span></span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; |# _ &lt;</span></span>
@@ -542,9 +542,9 @@ matrix using
 possible using the <code>backbone()</code> wrapper.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>my_network <span class="ot">&lt;-</span> <span class="fu">sample_gnp</span>(<span class="dv">100</span>, .<span class="dv">5</span>)  <span class="co">#A random network</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>my_network</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; IGRAPH 56324bc U--- 100 2504 -- Erdos-Renyi (gnp) graph</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; IGRAPH 4ab4276 U--- 100 2504 -- Erdos-Renyi (gnp) graph</span></span>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; + attr: name (g/c), type (g/c), loops (g/l), p (g/n)</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; + edges from 56324bc:</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; + edges from 4ab4276:</span></span>
 <span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;  [1]  1-- 4  2-- 4  3-- 4  1-- 5  3-- 5  4-- 5  4-- 6  5-- 6  1-- 7  3-- 7</span></span>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; [11]  1-- 8  2-- 8  1-- 9  3-- 9  4-- 9  6-- 9  7-- 9  1--10  3--10  4--10</span></span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; [21]  5--10  6--10  7--10  1--11  2--11  4--11  8--11  6--12 11--12  3--13</span></span>
@@ -555,16 +555,16 @@ possible using the <code>backbone()</code> wrapper.</p>
 <span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; [71] 13--18 15--18  2--19  3--19  5--19  8--19  9--19 10--19 12--19 14--19</span></span>
 <span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt; + ... omitted several edges</span></span>
 <span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>backbone <span class="ot">&lt;-</span> <span class="fu">backbone</span>(my_network)  <span class="co">#Extract the backbone</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; The backbone package for R (v3.0.1; Neal, 2025) was used to extract the unweighted backbone of an unweighted network containing 100 nodes. Edges were selected for retention in the backbone using Satuluri et al&#39;s (2011) Local Sparsification backbone model (filtering parameter = 0.5), which reduced the number of edges by 80.07%.</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; The backbone package for R (v3.0.2; Neal, 2025) was used to extract the unweighted backbone of an unweighted network containing 100 nodes. Edges were selected for retention in the backbone using Satuluri et al&#39;s (2011) Local Sparsification backbone model (filtering parameter = 0.5), which reduced the number of edges by 80.07%.</span></span>
 <span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; Neal, Z. P. 2025. backbone: An R Package to Extract Network Backbones. CRAN. https://doi.org/10.32614/CRAN.package.backbone</span></span>
 <span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt; Satuluri, V., Parthasarathy, S., &amp; Ruan, Y. (2011, June). Local graph sparsification for scalable clustering. In Proceedings of the 2011 ACM SIGMOD International Conference on Management of data (pp. 721-732). https://doi.org/10.1145/1989323.1989399</span></span>
 <span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>backbone</span>
-<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; IGRAPH 6ac0f07 U--- 100 499 -- lspar backbone of Erdos-Renyi (gnp) graph</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; IGRAPH 17f10dc U--- 100 499 -- lspar backbone of Erdos-Renyi (gnp) graph</span></span>
 <span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt; + attr: name (g/c), type (g/c), loops (g/l), p (g/n), call (g/x),</span></span>
 <span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co">#&gt; | narrative (g/c)</span></span>
-<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt; + edges from 6ac0f07:</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt; + edges from 17f10dc:</span></span>
 <span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#&gt;  [1]  3-- 4  4-- 6  1--10  5--10  7--10  2--11  4--11  8--11  4--13 11--13</span></span>
 <span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt; [11] 10--15  4--16 10--18 18--19  1--20  7--20  3--21  4--21  5--22 12--22</span></span>
 <span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt; [21] 20--22 21--22 20--23  3--24 16--24 18--25  2--26 11--26 12--26 20--26</span></span>
@@ -908,7 +908,7 @@ object that can be fully described using <code>print()</code>.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dv">48</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">6</span>, <span class="dv">8</span>)  <span class="co">#A simple incidence matrix</span></span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>bb <span class="ot">&lt;-</span> <span class="fu">backbone</span>(B, <span class="at">backbone_only =</span> <span class="cn">FALSE</span>)  <span class="co">#Extract backbone, return backbone object</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">#&gt; The backbone package for R (v3.0.1; Neal, 2025) was used to extract the unweighted backbone of the weighted projection of a bipartite network containing 6 agents and 8 artifacts. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.05) using the stochastic degree sequence model (SDSM; Neal, Domagalski, and Sagan, 2021), which reduced the number of edges by 100%.</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">#&gt; The backbone package for R (v3.0.2; Neal, 2025) was used to extract the unweighted backbone of the weighted projection of a bipartite network containing 6 agents and 8 artifacts. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.05) using the stochastic degree sequence model (SDSM; Neal, Domagalski, and Sagan, 2021), which reduced the number of edges by 100%.</span></span>
 <span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt; Neal, Z. P. 2025. backbone: An R Package to Extract Network Backbones. CRAN. https://doi.org/10.32614/CRAN.package.backbone</span></span>
 <span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -925,7 +925,7 @@ object that can be fully described using <code>print()</code>.</p>
 <span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a><span class="co">#&gt;     Call:   backbone_from_projection(B = N, narrative = TRUE, backbone_only = FALSE) </span></span>
 <span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a><span class="co">#&gt; DESCRIPTION -</span></span>
-<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a><span class="co">#&gt; The backbone package for R (v3.0.1; Neal, 2025) was used to extract the unweighted backbone of the weighted projection of a bipartite network containing 6 agents and 8 artifacts. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.05) using the stochastic degree sequence model (SDSM; Neal, Domagalski, and Sagan, 2021), which reduced the number of edges by 100%.</span></span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a><span class="co">#&gt; The backbone package for R (v3.0.2; Neal, 2025) was used to extract the unweighted backbone of the weighted projection of a bipartite network containing 6 agents and 8 artifacts. An edge was retained in the backbone if its weight was statistically significant (alpha = 0.05) using the stochastic degree sequence model (SDSM; Neal, Domagalski, and Sagan, 2021), which reduced the number of edges by 100%.</span></span>
 <span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a><span class="co">#&gt; Neal, Z. P. 2025. backbone: An R Package to Extract Network Backbones. CRAN. https://doi.org/10.32614/CRAN.package.backbone</span></span>
 <span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a><span class="co">#&gt; </span></span>

@@ -15,9 +15,7 @@ library(igraph)
 
 ## -----------------------------------------------------------------------------
 my_network <- sample_gnp(100, .5)  #A random network
-my_network
 backbone <- backbone(my_network)  #Extract the backbone
-backbone
 
 ## -----------------------------------------------------------------------------
 W <- matrix(c(0,10,10,10,10,75,0,0,0,0,  #Adjacency matrix of example network
@@ -85,9 +83,25 @@ bb <- backbone_from_unweighted(U, model = "degree", parameter = 0.25)
 plot(bb, vertex.size = degree(bb), vertex.label.family = "sans", vertex.label.font = 2, main = "Local Degree Backbone")
 
 ## -----------------------------------------------------------------------------
-B <- matrix(sample(c(0,1), 48, replace = TRUE), 6, 8)  #A simple incidence matrix
-bb <- backbone(B, backbone_only = FALSE)  #Extract backbone, return backbone object
-bb
+B <- rbind(cbind(matrix(rbinom(250,1,.8),10),
+                 matrix(rbinom(250,1,.2),10),
+                 matrix(rbinom(250,1,.2),10)),
+           cbind(matrix(rbinom(250,1,.2),10),
+                 matrix(rbinom(250,1,.8),10),
+                 matrix(rbinom(250,1,.2),10)),
+           cbind(matrix(rbinom(250,1,.2),10),
+                 matrix(rbinom(250,1,.2),10),
+                 matrix(rbinom(250,1,.8),10)))
+bb <- backbone_from_projection(B, backbone_only = FALSE)  #Return backbone-class object
+
+## -----------------------------------------------------------------------------
+print(bb)
+
+## -----------------------------------------------------------------------------
+summary(bb)
+
+## -----------------------------------------------------------------------------
+plot(bb, vertex.label = NA)
 
 ## ----fig.width=8, out.width="75%"---------------------------------------------
 par(mfrow = c(1, 2), mar = c(0,0,2,0))  #Display plots side-by-side
